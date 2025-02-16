@@ -26,12 +26,11 @@ class WordsOfDayListResponse {
 
 class WordOfDay {
   String definition;
-  String date;
+
   String permalink;
   int thumbsUp;
   String author;
   String word;
-  int defid;
   String currentVote;
   DateTime writtenOn;
   String example;
@@ -39,12 +38,10 @@ class WordOfDay {
 
   WordOfDay({
     required this.definition,
-    required this.date,
     required this.permalink,
     required this.thumbsUp,
     required this.author,
     required this.word,
-    required this.defid,
     required this.currentVote,
     required this.writtenOn,
     required this.example,
@@ -53,12 +50,10 @@ class WordOfDay {
 
   factory WordOfDay.fromJson(Map<String, dynamic> json) => WordOfDay(
         definition: json["definition"],
-        date: json["date"],
         permalink: json["permalink"],
         thumbsUp: json["thumbs_up"],
         author: json["author"],
         word: json["word"],
-        defid: json["defid"],
         currentVote: json["current_vote"],
         writtenOn: DateTime.parse(json["written_on"]),
         example: json["example"],
@@ -67,12 +62,10 @@ class WordOfDay {
 
   Map<String, dynamic> toJson() => {
         "definition": definition,
-        "date": date,
         "permalink": permalink,
         "thumbs_up": thumbsUp,
         "author": author,
         "word": word,
-        "defid": defid,
         "current_vote": currentVote,
         "written_on": writtenOn.toIso8601String(),
         "example": example,

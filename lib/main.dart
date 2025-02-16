@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wotd/generated/l10n.dart';
 import 'package:wotd/util/service_locator.dart';
 
 import 'view/home_view.dart';
 
 void main() async {
-  await dotenv.load();
+  await dotenv.load(fileName: ".env");
   await locatorSetUp();
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'WOTD- Word of the Day',
+      title: 'WOTD - Word of the Day',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
