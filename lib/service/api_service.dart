@@ -7,8 +7,9 @@ abstract class IApiService {
 class ApiService extends IApiService {
   final Dio _dio;
 
-  ApiService({Dio? dio, required String baseUrl})
-      : _dio = dio ??
+  ApiService({
+    Dio? dio,
+  }) : _dio = dio ??
             Dio(BaseOptions(
               baseUrl: "https://urban-dictionary7.p.rapidapi.com/v0",
               headers: {
