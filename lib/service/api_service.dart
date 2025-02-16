@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 abstract class IApiService {
   Future<dynamic> get(String endpoint, {Map<String, dynamic>? params});
@@ -13,8 +14,7 @@ class ApiService extends IApiService {
             Dio(BaseOptions(
               baseUrl: "https://urban-dictionary7.p.rapidapi.com/v0",
               headers: {
-                "x-rapidapi-key":
-                    "6b69702c3emshe7e9db4897a9311p1ea77cjsn302812f8b301",
+                "x-rapidapi-key": dotenv.get('RAPID_API_KEY'),
                 "x-rapidapi-host": "urban-dictionary7.p.rapidapi.com"
               },
               connectTimeout: const Duration(seconds: 10),
