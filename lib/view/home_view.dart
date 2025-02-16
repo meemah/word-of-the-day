@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wotd/repository/word_repository.dart';
+import 'package:wotd/service/api_service.dart';
 import 'package:wotd/util/font_family.dart';
 
 class HomeView extends StatelessWidget {
@@ -40,17 +42,21 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              Center(
-                child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.black),
-                  ),
-                  child: const Icon(
-                    Icons.share,
-                    color: Colors.black,
+              GestureDetector(
+                onTap: () =>
+                    WordRepository(apiService: ApiService()).getWordOfTheDay(),
+                child: Center(
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.black),
+                    ),
+                    child: const Icon(
+                      Icons.share,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               )

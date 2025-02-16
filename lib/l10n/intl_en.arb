@@ -1,0 +1,6 @@
+{
+  "connectionTimeout": "Connection timeout. Please try again.",
+  "serverTookTooLongToRespond": "Server took too long to respond.",
+  "failedToLoadData": "Failed to load data.",
+  "anUnexpectedErrorOccurred": "An unexpected error occurred."
+}

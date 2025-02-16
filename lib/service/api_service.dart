@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:wotd/generated/l10n.dart';
 
 abstract class IApiService {
   Future<dynamic> get(String endpoint, {Map<String, dynamic>? params});
@@ -34,14 +35,14 @@ class ApiService extends IApiService {
   String _handleError(DioException error) {
     switch (error.type) {
       case DioExceptionType.connectionTimeout:
-        return "Connection timeout. Please try again.";
+        return S.current.connectionTimeout;
       case DioExceptionType.receiveTimeout:
-        return "Server took too long to respond.";
+        return S.current.serverTookTooLongToRespond;
       case DioExceptionType.badResponse:
-        return error.response?.data["message"] ?? "Failed to load data.";
+        return error.response?.data["message"] ?? S.current.failedToLoadData;
 
       default:
-        return "An unexpected error occurred.";
+        return S.current.anUnexpectedErrorOccurred;
     }
   }
 }
