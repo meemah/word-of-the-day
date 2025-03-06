@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:wotd/model/words_of_day_response.dart';
 import 'package:wotd/util/font_family.dart';
 import 'package:wotd/util/providers.dart';
@@ -71,6 +72,8 @@ class HomeView extends HookConsumerWidget {
                         ),
                         Text(
                           wordOfDay.definition,
+                          maxLines: 10,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
@@ -79,16 +82,19 @@ class HomeView extends HookConsumerWidget {
                         ),
                         const Spacer(),
                         Center(
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.black),
-                            ),
-                            child: const Icon(
-                              Icons.share,
-                              color: Colors.black,
+                          child: GestureDetector(
+                            onTap: () => Share.share(wordOfDay.definition),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(color: Colors.black),
+                              ),
+                              child: const Icon(
+                                Icons.share,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                         )
