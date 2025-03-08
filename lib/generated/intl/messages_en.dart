@@ -26,9 +26,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "An unexpected error occurred."),
         "connectionTimeout": MessageLookupByLibrary.simpleMessage(
             "Connection timeout. Please try again."),
+        "emptyWordList": MessageLookupByLibrary.simpleMessage(
+            "Ooppsss...We currently do not have quote for you"),
         "failedToLoadData":
             MessageLookupByLibrary.simpleMessage("Failed to load data."),
         "serverTookTooLongToRespond": MessageLookupByLibrary.simpleMessage(
-            "Server took too long to respond.")
+            "Server took too long to respond."),
+        "tapToRetry": MessageLookupByLibrary.simpleMessage("Tap to retry!")
       };
 }
