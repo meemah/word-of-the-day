@@ -2,5 +2,7 @@
   "connectionTimeout": "Connection timeout. Please try again.",
   "serverTookTooLongToRespond": "Server took too long to respond.",
   "failedToLoadData": "Failed to load data.",
-  "anUnexpectedErrorOccurred": "An unexpected error occurred."
+  "anUnexpectedErrorOccurred": "An unexpected error occurred.",
+  "emptyWordList": "Ooppsss...We currently do not have quote for you",
+  "tapToRetry": "Tap to retry!"
 }

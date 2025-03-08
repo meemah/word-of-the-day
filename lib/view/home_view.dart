@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:wotd/generated/l10n.dart';
 import 'package:wotd/model/words_of_day_response.dart';
 import 'package:wotd/util/font_family.dart';
 import 'package:wotd/util/providers.dart';
@@ -48,10 +49,48 @@ class HomeView extends HookConsumerWidget {
                       )
                     ],
                   ),
-                  error: (error, stackTrace) => Text(error.toString()),
+                  error: (error, stackTrace) => Text(
+                      key: const ValueKey("wotd_error_key"), error.toString()),
                   data: (data) {
+                    if (data.list.isEmpty) {
+                      return Center(
+                        key: const ValueKey("wotd_empty_key"),
+                        child: GestureDetector(
+                          onTap: () => ref
+                              .read(wordViewModel.notifier)
+                              .getWordOfTheDay(),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                Icons.list,
+                                size: 40,
+                                color: Colors.grey,
+                              ),
+                              const SizedBox(
+                                height: 40,
+                              ),
+                              Text(
+                                S.current.emptyWordList,
+                                style: const TextStyle(fontSize: 12),
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                S.current.tapToRetry,
+                                style: const TextStyle(color: Colors.red),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }
                     WordOfDay wordOfDay = data.list.first;
                     return Column(
+                      key: const ValueKey("wotd_completed_key"),
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(

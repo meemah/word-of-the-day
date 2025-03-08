@@ -89,6 +89,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Ooppsss...We currently do not have quote for you`
+  String get emptyWordList {
+    return Intl.message(
+      'Ooppsss...We currently do not have quote for you',
+      name: 'emptyWordList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to retry!`
+  String get tapToRetry {
+    return Intl.message(
+      'Tap to retry!',
+      name: 'tapToRetry',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
