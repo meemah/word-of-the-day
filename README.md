@@ -5,9 +5,11 @@ A **Flutter** app that fetches and displays a **Word of the Day** from **Urban D
 ## 🚀 Features
 - Fetches a **new word** every day from **Urban Dictionary**.
 - Uses **RapidAPI** for definitions, examples, and related words.
+- Proper handling of loading, error and success state
 - Stores API keys securely using a **`.env` file**.
 - Simple, modern, and user-friendly UI.
 - Localization
+- Well written Unit and Widget testing
 
 ---
 
